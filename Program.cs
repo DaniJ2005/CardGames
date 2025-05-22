@@ -2,19 +2,22 @@
 {
     public static void Main()
     {
-        List<Card> cards = new()
-        {
-            // new Card(Suit.Clubs, Rank.Ten),
-            // new Card(Suit.Clubs, Rank.Jack),
-            // new Card(Suit.Clubs, Rank.Queen),
-            // new Card(Suit.Clubs, Rank.King),
-            // new Card(Suit.Clubs, Rank.Ace),
-            new Card(Suit.Hearts, Rank.Four),
-            new Card(Suit.Diamonds, Rank.Four),
-        };
-        List<List<Card>> combinations = HandEvaluator.GetCombinations(cards);
+        // List<Card> cards = new()
+        // {
+        //     new Card(Suit.Clubs, Rank.Ten),
+        //     new Card(Suit.Clubs, Rank.Jack),
+        //     new Card(Suit.Clubs, Rank.Queen),
+        //     new Card(Suit.Clubs, Rank.King),
+        //     new Card(Suit.Clubs, Rank.Ace),
+        //     new Card(Suit.Hearts, Rank.Four),
+        //     new Card(Suit.Diamonds, Rank.Four),
+        // };
+        // List<List<Card>> combinations = HandEvaluator.GetCombinations(cards);
 
-        HandEvaluator.PrintCombinations(combinations);
+        // HandEvaluator.PrintCombinations(combinations);
+
+        ViewDeck();
+
     }
 
     private static void Poker()
@@ -37,9 +40,9 @@
 
         while (deck.Cards.Count > 0)
         {
-            Console.ReadKey();
+            Console.ReadKey(true);
             Card card = deck.Draw();
-            Console.WriteLine($"{card} - Cards left {deck.Cards.Count}");
+            card.Print();
         }
     }
 }
