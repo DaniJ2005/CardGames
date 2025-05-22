@@ -9,5 +9,32 @@ public class Card
         Rank = rank;
     }
 
-    public override string ToString() => $"{Rank} of {Suit}";
+    public void Print()
+    {
+        string icon = Suit switch
+        {
+            Suit.Hearts => "♥",
+            Suit.Diamonds => "♦",
+            Suit.Clubs => "♣",
+            Suit.Spades => "♠",
+            _ => "?"
+        };
+
+        bool isRed = Suit == Suit.Hearts || Suit == Suit.Diamonds;
+
+        if (isRed)
+            Console.ForegroundColor = ConsoleColor.Red;
+
+        Console.Write(icon);
+
+        Console.ResetColor();
+        Console.Write($" {Rank} of {Suit} ");
+
+        if (isRed)
+            Console.ForegroundColor = ConsoleColor.Red;
+
+        Console.WriteLine(icon);
+        Console.ResetColor();
+    }
+
 }
